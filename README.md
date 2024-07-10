@@ -5,9 +5,8 @@
 Clone using:
 
 ```shell
-git clone https://github.com/binhkieudo/NewFramework.git
+git clone https://github.com/binhkieudo/ManyCore.git
 cd NewFramework
-git checkout dev
 ```
 
 ## Install conda enviroment
@@ -25,6 +24,7 @@ Then install conda-lock for "base" environment
 ```shell
 conda install -n base conda-lock=1.4
 ```
+Notice: the required python version is less than 3.10.
 
 ## Build chipyard enviroment
 
@@ -45,6 +45,11 @@ You have to active the chipyard environment whenever working with chipyard frame
 
 ```shell
 source env.sh
+```
+
+Then swith to dev branch
+```shell
+git checkout mem_ext
 ```
 
 ## Prepare SD-card 
