@@ -85,19 +85,6 @@ After formatting the SD Card, print the new partition and save the configuration
 
 Vivado must be in your PATH
 
-To reduce the BootROM size
-
-In file /riscv_framework/generators/rocket-chip/src/main/scala/devices/tilelinkBootROM.scala
-
-Replace line 79
-```shell
-rom.array() ++ subsystem.dtb.contents
-```
-by
-```shell
-rom.array() //++ subsystem.dtb.contents
-```
-
 Enter framework folder
 ```shell
 cd framework
@@ -105,10 +92,18 @@ cd framework
 
 Build the bitstream with your selected configuration.
 ```shell
-make SUB_PROJECT=vc707_rocketsmall bitstream
+make bitstream
 ```
 
 After generating ".bit" file, connect the VC707 board to your PC (make sure that the rules for Digilent cable are defined beforehand). Then program the board.
 ```shell
 make download_bitstream
 ```
+
+Note: the demo design include 4 rocket cores. The program in SDCard will be loaded into DDR first. The proposed configuration support JTAG. Therefore, you can
+use JTAG to program for the 4 cores system. The begin address of DDR is 0x80000000 which the size of 1GB.
+
+It is required to install OpenOCD to create the JTAG server. The instructions can be found in: https://thuchoang90.github.io/tutorial/2022/09/30/Fresh-Ubuntu-setup#h-ii-g-openocd
+
+After open JTAG server, you can use RISC-V GDB to debug and program for the system.
+
