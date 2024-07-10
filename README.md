@@ -107,3 +107,4 @@ It is required to install OpenOCD to create the JTAG server. The instructions ca
 
 After open JTAG server, you can use RISC-V GDB to debug and program for the system.
 
+ARM-USB-TINY-H is necessary to convert JTAG to USB. The configuration for Olimex ARM-USB-TINY-H is proposed in the framework folder.
